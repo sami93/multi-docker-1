@@ -9,15 +9,15 @@ script:
     - docker run -e CI=true cbr600fsgth/react-test npm test -- --coverage
 
 after_success:
-    - docker build -t cbr600fsgth/multi-client ./client
-    - docker build -t cbr600fsgth/multi-nginx ./nginx
-    - docker build -t cbr600fsgth/multi-server ./server
-    - docker build -t cbr600fsgth/multi-worker ./worker
+    - docker build -t cbr600fsdck/multi-client ./client
+    - docker build -t cbr600fsdck/multi-nginx ./nginx
+    - docker build -t cbr600fsdck/multi-server ./server
+    - docker build -t cbr600fsdck/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to docker hub
-    - docker push cbr600fsgth/multi-client
-    - docker push cbr600fsgth/multi-nginx
-    - docker push cbr600fsgth/multi-server
-    - docker push cbr600fsgth/multi-worker
+    - docker push cbr600fsdck/multi-client
+    - docker push cbr600fsdck/multi-nginx
+    - docker push cbr600fsdck/multi-server
+    - docker push cbr600fsdck/multi-worker
     
