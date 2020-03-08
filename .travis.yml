@@ -9,6 +9,7 @@ script:
     - docker run -e CI=true cbr600fsgth/react-test npm test -- --coverage
 
 after_success:
+    # タグ名はDockerHubのアカウントに合わせておく必要がある
     - docker build -t cbr600fsdck/multi-client ./client
     - docker build -t cbr600fsdck/multi-nginx ./nginx
     - docker build -t cbr600fsdck/multi-server ./server
